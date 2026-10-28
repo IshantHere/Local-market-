@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Products - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main);">
+            Product Comparison
+          </h1>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Compare price, stock, ratings, and vendor locality across up to 3 products side-by-side.
+          </p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="products.html" class="btn btn-sm btn-outline">+ Add More Products</a>
+          <button class="btn btn-sm btn-outline text-danger" id="clear-compare-btn">Clear List</button>
+        </div>
+      </div>
+
+      <!-- Comparison Container -->
+      <div id="compare-table-container">
+        <!-- Populated by compare.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/compare.js"></script>
+</body>
+</html>

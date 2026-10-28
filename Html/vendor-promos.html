@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promotions & Discounts - Vendor Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container">
+      <div style="margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="badge badge-warning" style="margin-bottom: 4px;">Vendor Marketing</span>
+          <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main);">Store Promotions & Vouchers</h1>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Create discount codes to attract neighbourhood shoppers to your harvest.</p>
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+          <a href="vendor-dashboard.html" class="btn btn-sm btn-outline">&larr; Dashboard</a>
+          <button class="btn btn-sm btn-primary" id="open-create-promo-btn">+ Create Promotion</button>
+        </div>
+      </div>
+
+      <!-- Promotions List -->
+      <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 30px;">
+        <div id="vendor-promos-table-wrap">
+          <!-- Populated by vendor-promos.js -->
+        </div>
+      </div>
+
+      <!-- Create Promo Modal -->
+      <div id="promo-modal-wrap"></div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/vendor-promos.js"></script>
+</body>
+</html>

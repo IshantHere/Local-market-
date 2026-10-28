@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Simulation - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container" style="max-width: 720px;">
+      <div style="margin-bottom: 20px;">
+        <span class="badge badge-primary" style="margin-bottom: 4px;">Step 2 of 2</span>
+        <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main);">
+          Simulated Payment Checkout
+        </h1>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Secure mock payment portal. No real card charge will ever occur.
+        </p>
+      </div>
+
+      <!-- Payment Summary Box -->
+      <div class="card" style="margin-bottom: 24px; background: var(--bg-subtle);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">Total Payable Amount</div>
+            <div id="payment-amount-display" style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary);">₹0.00</div>
+          </div>
+          <div style="text-align: right; font-size: 0.82rem; color: var(--text-muted);">
+            <div id="payment-recipient-display">Delivering to Sarah Jenkins</div>
+            <div id="payment-locality-display">Northwood Hills</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Method Selection -->
+      <div class="card">
+        <h2 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 16px;">
+          Choose Payment Method
+        </h2>
+
+        <!-- Method Tabs / Radio Buttons -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px;">
+          <label style="border: 2px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer; transition: all 0.15s;" class="payment-method-card active" data-method="upi">
+            <input type="radio" name="payment-method" value="upi" checked style="display: none;">
+            <div style="font-size: 1.3rem; margin-bottom: 4px;">📱</div>
+            <strong style="font-size: 0.88rem; display: block;">UPI / QR</strong>
+            <small style="color: var(--text-muted); font-size: 0.72rem;">Instant transfer</small>
+          </label>
+
+          <label style="border: 2px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer; transition: all 0.15s;" class="payment-method-card" data-method="card">
+            <input type="radio" name="payment-method" value="card" style="display: none;">
+            <div style="font-size: 1.3rem; margin-bottom: 4px;">💳</div>
+            <strong style="font-size: 0.88rem; display: block;">Credit / Debit</strong>
+            <small style="color: var(--text-muted); font-size: 0.72rem;">Visa / Master</small>
+          </label>
+
+          <label style="border: 2px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer; transition: all 0.15s;" class="payment-method-card" data-method="cod">
+            <input type="radio" name="payment-method" value="cod" style="display: none;">
+            <div style="font-size: 1.3rem; margin-bottom: 4px;">💵</div>
+            <strong style="font-size: 0.88rem; display: block;">Cash on Delivery</strong>
+            <small style="color: var(--text-muted); font-size: 0.72rem;">Pay on receipt</small>
+          </label>
+        </div>
+
+        <!-- Dynamic Forms based on method -->
+        <form id="payment-form" novalidate>
+          <!-- 1. UPI Section -->
+          <div id="section-upi" class="payment-section">
+            <div class="form-group">
+              <label class="form-label" for="upi-id">Virtual Payment Address (UPI ID) *</label>
+              <input type="text" id="upi-id" class="form-control" placeholder="username@oksbi or mobile@upi" value="sarah@oksbi">
+              <span class="form-hint">Format example: yourname@bank or 9876543210@upi</span>
+            </div>
+            <div style="background: var(--bg-subtle); padding: 12px; border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">
+              ⚡ A collect request will be sent to your UPI application. Approval is auto-simulated.
+            </div>
+          </div>
+
+          <!-- 2. Card Section -->
+          <div id="section-card" class="payment-section" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="card-name">Cardholder Name *</label>
+              <input type="text" id="card-name" class="form-control" placeholder="Name as displayed on card" value="Sarah Jenkins">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="card-number">Card Number *</label>
+              <input type="text" id="card-number" class="form-control" placeholder="4111 2222 3333 4444" maxlength="19" value="4242 4242 4242 4242">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group form-col">
+                <label class="form-label" for="card-expiry">Expiry Date (MM/YY) *</label>
+                <input type="text" id="card-expiry" class="form-control" placeholder="12/28" maxlength="5" value="12/28">
+              </div>
+              <div class="form-group form-col">
+                <label class="form-label" for="card-cvv">CVV (3 Digits) *</label>
+                <input type="password" id="card-cvv" class="form-control" placeholder="•••" maxlength="4" value="123">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. COD Section -->
+          <div id="section-cod" class="payment-section" style="display: none;">
+            <div style="background: var(--bg-subtle); padding: 16px; border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
+              💵 <strong>Cash on Delivery selected:</strong>
+              <p style="margin-top: 4px;">Please keep exact change ready when the courier arrives at your door. You may also scan courier's QR code upon delivery.</p>
+            </div>
+          </div>
+
+          <!-- Payment Processing Indicator (Hidden initially) -->
+          <div id="payment-processing-box" style="display: none; text-align: center; padding: 24px 0;">
+            <div style="font-size: 2rem; margin-bottom: 8px;">⏳</div>
+            <strong style="color: var(--accent-primary); font-size: 1.05rem;">Processing Simulated Payment...</strong>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Communicating with secure simulated settlement gateway...</p>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div id="payment-action-buttons" style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 16px;">
+            <a href="checkout.html" style="font-size: 0.88rem; font-weight: 600;">&larr; Back to Address</a>
+            <button type="submit" class="btn btn-primary btn-lg" id="pay-submit-btn">
+              🔒 Confirm & Place Order
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/payment.js"></script>
+</body>
+</html>

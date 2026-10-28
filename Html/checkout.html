@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container">
+      <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main); margin-bottom: 24px;">
+        Delivery & Order Details
+      </h1>
+
+      <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 28px; align-items: flex-start;">
+        <!-- Left: Delivery Address Form -->
+        <div class="card">
+          <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light);">
+            📍 Delivery Address & Contact
+          </h2>
+
+          <form id="checkout-form" novalidate>
+            <div class="form-row">
+              <div class="form-group form-col">
+                <label class="form-label" for="checkout-name">Recipient Full Name *</label>
+                <input type="text" id="checkout-name" name="name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+              </div>
+              <div class="form-group form-col">
+                <label class="form-label" for="checkout-phone">Contact Phone Number *</label>
+                <input type="tel" id="checkout-phone" name="phone" class="form-control" placeholder="e.g. +1 (555) 901-2244" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-address">Street Address & Apartment / Unit *</label>
+              <input type="text" id="checkout-address" name="address" class="form-control" placeholder="e.g. 42 Maple Street, Apt 3B" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group form-col">
+                <label class="form-label" for="checkout-locality">Neighborhood / Locality *</label>
+                <select id="checkout-locality" name="locality" class="form-control" required>
+                  <option value="">Select your area...</option>
+                  <option value="Northwood Hills">Northwood Hills</option>
+                  <option value="Historic Downtown">Historic Downtown</option>
+                  <option value="Riverdale Valley">Riverdale Valley</option>
+                  <option value="Old Town Market">Old Town Market</option>
+                  <option value="East Arts District">East Arts District</option>
+                </select>
+              </div>
+              <div class="form-group form-col">
+                <label class="form-label" for="checkout-city">City / Region</label>
+                <input type="text" id="checkout-city" class="form-control" value="Local Metro Area" readonly style="background: var(--bg-subtle);">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-notes">Courier Delivery Notes (Optional)</label>
+              <textarea id="checkout-notes" name="notes" class="form-control" rows="2" placeholder="e.g. Ring apartment buzzer #302, or leave safely in the porch box."></textarea>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 16px;">
+              <a href="cart.html" style="font-size: 0.88rem; font-weight: 600;">&larr; Return to Basket</a>
+              <button type="submit" class="btn btn-primary" style="padding: 10px 24px;">
+                Proceed to Payment &rarr;
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Order Summary Sidebar -->
+        <div class="card" id="checkout-summary-box">
+          <!-- Populated by checkout.js -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/checkout.js"></script>
+</body>
+</html>

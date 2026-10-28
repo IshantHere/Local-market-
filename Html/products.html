@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Products - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container">
+      <!-- Breadcrumb / Heading -->
+      <div style="margin-bottom: 20px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main);" id="catalog-page-title">
+            All Local Market Products
+          </h1>
+          <p style="font-size: 0.85rem; color: var(--text-muted);" id="catalog-results-count">
+            Showing all local items
+          </p>
+        </div>
+
+        <!-- Sort dropdown -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label for="sort-select" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Sort by:</label>
+          <select id="sort-select" class="form-control" style="width: auto; padding: 6px 12px; font-size: 0.85rem;">
+            <option value="default">Featured / Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating-high">Highest Rated</option>
+            <option value="name-asc">Alphabetical (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Layout: Filter Sidebar + Products Grid -->
+      <div class="catalog-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filter-sidebar">
+          <div class="filter-title">
+            <span>Filter Products</span>
+            <button class="btn-link" id="reset-filters-btn" style="font-size: 0.8rem; padding: 0; color: var(--accent-primary); cursor: pointer;">
+              Clear All
+            </button>
+          </div>
+
+          <!-- Keyword Search in sidebar -->
+          <div class="filter-group">
+            <label class="filter-group-title" for="sidebar-search">Search Keyword</label>
+            <input type="text" id="sidebar-search" class="form-control" placeholder="e.g. sourdough, honey..." style="font-size: 0.85rem; padding: 6px 10px;">
+          </div>
+
+          <!-- Category Filter -->
+          <div class="filter-group">
+            <span class="filter-group-title">Category</span>
+            <div id="category-filters-container">
+              <!-- Checkboxes inserted by JS -->
+            </div>
+          </div>
+
+          <!-- Vendor Filter -->
+          <div class="filter-group">
+            <span class="filter-group-title">Vendor / Maker</span>
+            <div id="vendor-filters-container">
+              <!-- Checkboxes inserted by JS -->
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <span class="filter-group-title">Max Price</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="range" id="price-slider" min="0" max="800" step="25" value="800" style="width: 100%;">
+              <span id="price-slider-display" style="font-weight: 600; font-size: 0.85rem; min-width: 48px;">₹800</span>
+            </div>
+          </div>
+
+          <!-- Availability Filter -->
+          <div class="filter-group">
+            <span class="filter-group-title">Availability</span>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="in-stock-only">
+              <span>In-stock items only</span>
+            </label>
+          </div>
+        </aside>
+
+        <!-- Product Grid Area -->
+        <section>
+          <div class="product-grid" id="products-catalog-grid">
+            <!-- Populated by products.js -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/products.js"></script>
+</body>
+</html>
