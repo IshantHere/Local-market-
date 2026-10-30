@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container" style="max-width: 480px;">
+      <div class="card" style="padding: 28px;">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span style="font-size: 2rem;">🌿</span>
+          <h1 style="font-size: 1.4rem; font-weight: 700; margin-top: 6px;">Sign In to Local Market</h1>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+            Access your orders, vendor management, or platform console.
+          </p>
+        </div>
+
+        <!-- Quick Demo Credentials Fill Pills -->
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px;">
+          <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;">
+            ⚡ One-Click Demo Logins:
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemo('customer@demo.com', 'demo123')">
+              Customer (Ishant Singh)
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemo('vendor@demo.com', 'demo123')">
+              Vendor (Rohit Sharma)
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemo('admin@demo.com', 'demo123')">
+              Admin (Jaspreet Gill)
+            </button>
+          </div>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address *</label>
+            <input type="email" id="login-email" name="email" class="form-control" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password *</label>
+            <input type="password" id="login-password" name="password" class="form-control" placeholder="••••••••" required>
+          </div>
+
+          <div id="login-error-alert" style="display: none; background: var(--danger-light); border: 1px solid var(--danger); color: var(--danger); font-size: 0.82rem; padding: 10px; border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 8px;">
+            Sign In
+          </button>
+        </form>
+
+        <div style="margin-top: 20px; text-align: center; font-size: 0.88rem; color: var(--text-muted); border-top: 1px solid var(--border-light); padding-top: 16px;">
+          Don't have an account yet? <a href="register.html" style="font-weight: 600;">Register here</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Console - Local Market</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Global Shared Header -->
+  <div id="site-header"></div>
+
+  <main class="page-wrapper">
+    <div class="container">
+      <div style="margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="badge badge-danger" style="margin-bottom: 4px;">Platform Administration</span>
+          <h1 style="font-size: 1.45rem; font-weight: 700; color: var(--text-main);">Marketplace Moderation & Oversight</h1>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Manage registered users, moderate vendor stores, review product listings, and audit orders.</p>
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-sm btn-outline text-danger" onclick="Storage.resetDemoData()">&#8635; Reset Demo Data</button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stat-grid" id="admin-stats-grid">
+        <!-- Rendered by admin.js -->
+      </div>
+
+      <!-- Administration Navigation Tabs -->
+      <div style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; overflow-x: auto;" id="admin-nav-tabs">
+        <button class="btn btn-sm btn-primary admin-tab-btn active" data-tab="vendors-tab">Vendors (Stores)</button>
+        <button class="btn btn-sm btn-outline admin-tab-btn" data-tab="products-tab">Products Moderation</button>
+        <button class="btn btn-sm btn-outline admin-tab-btn" data-tab="orders-tab">All Customer Orders</button>
+        <button class="btn btn-sm btn-outline admin-tab-btn" data-tab="categories-tab">Categories</button>
+        <button class="btn btn-sm btn-outline admin-tab-btn" data-tab="promos-tab">Promotions & Vouchers</button>
+        <button class="btn btn-sm btn-outline admin-tab-btn" data-tab="users-tab">Users Directory</button>
+      </div>
+
+      <!-- Tab 1: Vendors Moderation -->
+      <div class="admin-tab-content" id="vendors-tab">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 14px 18px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 700;">Registered Local Vendors</h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Approve or suspend vendor stores</span>
+          </div>
+          <div id="admin-vendors-table-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Products Moderation -->
+      <div class="admin-tab-content" id="products-tab" style="display: none;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 14px 18px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <h3 style="font-size: 1rem; font-weight: 700;">Global Product Catalog Moderation</h3>
+            <input type="text" id="admin-product-search" class="form-control" placeholder="Search catalog..." style="width: 240px; font-size: 0.82rem; padding: 5px 10px;">
+          </div>
+          <div id="admin-products-table-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Orders Audit -->
+      <div class="admin-tab-content" id="orders-tab" style="display: none;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 14px 18px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 700;">Platform Order History & Audit</h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Live neighborhood delivery tracking</span>
+          </div>
+          <div id="admin-orders-table-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Categories -->
+      <div class="admin-tab-content" id="categories-tab" style="display: none;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="card">
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px;">Existing Market Categories</h3>
+            <div id="admin-categories-list"></div>
+          </div>
+          <div class="card">
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px;">Create New Category</h3>
+            <form id="admin-add-category-form">
+              <div class="form-group">
+                <label class="form-label" for="new-cat-name">Category Title *</label>
+                <input type="text" id="new-cat-name" class="form-control" placeholder="e.g. Artisanal Beverages" required minlength="2">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">+ Add Category</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Promotions -->
+      <div class="admin-tab-content" id="promos-tab" style="display: none;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 14px 18px; border-bottom: 1px solid var(--border-light);">
+            <h3 style="font-size: 1rem; font-weight: 700;">Platform-Wide Promotions Management</h3>
+          </div>
+          <div id="admin-promos-table-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Tab 6: Users Directory -->
+      <div class="admin-tab-content" id="users-tab" style="display: none;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 14px 18px; border-bottom: 1px solid var(--border-light);">
+            <h3 style="font-size: 1rem; font-weight: 700;">Registered Community Accounts</h3>
+          </div>
+          <div id="admin-users-table-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Admin Modal Container -->
+      <div id="admin-modal-wrap"></div>
+    </div>
+  </main>
+
+  <!-- Global Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/orders.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/pages/admin.js"></script>
+</body>
+</html>
