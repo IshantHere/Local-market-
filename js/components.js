@@ -1,3 +1,7 @@
+/**
+ * components.js - Shared Header, Navigation, Footer, and Demo Switcher.
+ * Automatically injects the UI chrome on every page for consistent look and navigation.
+ */
 
 const Components = {
   init() {
