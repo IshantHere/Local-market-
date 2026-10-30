@@ -1,12 +1,9 @@
-/**
- * components.js - Shared Header, Navigation, Footer, and Demo Switcher.
- * Automatically injects the UI chrome on every page for consistent look and navigation.
- */
 
 const Components = {
   init() {
-    // 0. Apply theme preset from storage
-    this.applyTheme();
+    // Clean up any stale theme attributes
+    document.documentElement.removeAttribute('data-theme');
+    try { localStorage.removeItem('lmarket_theme'); } catch (e) {}
 
     // 1. Initialize data storage if needed
     Storage.init();
@@ -20,27 +17,6 @@ const Components = {
     this.updateCounters();
   },
 
-  applyTheme() {
-    const theme = localStorage.getItem('lmarket_theme') || 'forest';
-    if (theme && theme !== 'forest') {
-      document.documentElement.setAttribute('data-theme', theme);
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-  },
-
-  setTheme(theme) {
-    if (!theme || theme === 'forest') {
-      localStorage.setItem('lmarket_theme', 'forest');
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      localStorage.setItem('lmarket_theme', theme);
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-    const sel = document.getElementById('theme-selector');
-    if (sel) sel.value = theme;
-  },
-
   renderHeader() {
     const headerContainer = document.getElementById('site-header');
     if (!headerContainer) return;
@@ -48,7 +24,6 @@ const Components = {
     const user = Auth.getUser();
     const categories = Storage.getCategories();
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const currentTheme = localStorage.getItem('lmarket_theme') || 'forest';
 
     // Top announcement & quick demo switcher bar
     const topBarHtml = `
@@ -57,30 +32,17 @@ const Components = {
           <div class="top-announcement-text">
             <span class="pulse-dot"></span> Supporting neighborhood small vendors &bull; Use code <strong>LOCAL10</strong> for 10% off
           </div>
-          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-            <div class="theme-switcher-group" style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem;">
-              <span style="opacity: 0.9; font-size: 0.78rem;">🎨 Theme:</span>
-              <select id="theme-selector" onchange="Components.setTheme(this.value)" style="background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.35); border-radius: 4px; padding: 2px 6px; font-size: 0.78rem; cursor: pointer; outline: none;">
-                <option value="forest" style="color: #111;" ${currentTheme === 'forest' ? 'selected' : ''}>Forest Green (Original)</option>
-                <option value="navy" style="color: #111;" ${currentTheme === 'navy' ? 'selected' : ''}>Oxford Midnight Navy (Luxury)</option>
-                <option value="emerald" style="color: #111;" ${currentTheme === 'emerald' ? 'selected' : ''}>Imperial Emerald (Botanical)</option>
-                <option value="terracotta" style="color: #111;" ${currentTheme === 'terracotta' ? 'selected' : ''}>Tuscan Terracotta (Artisan)</option>
-                <option value="espresso" style="color: #111;" ${currentTheme === 'espresso' ? 'selected' : ''}>Roasted Espresso (Modern)</option>
-                <option value="burgundy" style="color: #111;" ${currentTheme === 'burgundy' ? 'selected' : ''}>Royal Burgundy (Opulent)</option>
-              </select>
-            </div>
-            <div class="demo-account-switcher">
-              <span class="switcher-label">Switch Role:</span>
-              <button class="switcher-btn ${user && user.role === 'customer' ? 'active' : ''}" onclick="Auth.quickSwitch('customer@demo.com')">
-                Customer (Ishant)
-              </button>
-              <button class="switcher-btn ${user && user.role === 'vendor' ? 'active' : ''}" onclick="Auth.quickSwitch('vendor@demo.com')">
-                Vendor (Rohit)
-              </button>
-              <button class="switcher-btn ${user && user.role === 'admin' ? 'active' : ''}" onclick="Auth.quickSwitch('admin@demo.com')">
-                Admin (Jaspreet)
-              </button>
-            </div>
+          <div class="demo-account-switcher">
+            <span class="switcher-label">Switch Demo Role:</span>
+            <button class="switcher-btn ${user && user.role === 'customer' ? 'active' : ''}" onclick="Auth.quickSwitch('customer@demo.com')">
+              Customer (Ishant)
+            </button>
+            <button class="switcher-btn ${user && user.role === 'vendor' ? 'active' : ''}" onclick="Auth.quickSwitch('vendor@demo.com')">
+              Vendor (Rohit)
+            </button>
+            <button class="switcher-btn ${user && user.role === 'admin' ? 'active' : ''}" onclick="Auth.quickSwitch('admin@demo.com')">
+              Admin (Jaspreet)
+            </button>
           </div>
         </div>
       </div>
