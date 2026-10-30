@@ -47,101 +47,6 @@
   --container-max: 1200px;
 }
 
-/* ==========================================================================
-   Premium & Elegant Theme Presets
-   Apply via <html data-theme="..."> or document.documentElement.setAttribute('data-theme', '...')
-   ========================================================================== */
-
-/* 1. Oxford Midnight Navy (Luxury Heritage) */
-[data-theme="navy"] {
-  --bg-main: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-hover: #e2e8f0;
-  
-  --accent-primary: #1e3a5f;
-  --accent-hover: #142740;
-  --accent-light: #eef4fb;
-  --accent-border: #cbdceb;
-
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-light: #94a3b8;
-  --border-light: #e2e8f0;
-}
-
-/* 2. Imperial Pine & British Emerald (Lush Botanical Luxury) */
-[data-theme="emerald"] {
-  --bg-main: #fbfbf9;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f2f5f1;
-  --bg-hover: #e5ebe3;
-  
-  --accent-primary: #1b4332;
-  --accent-hover: #112d22;
-  --accent-light: #ebf5ee;
-  --accent-border: #b7dac7;
-
-  --text-main: #18221c;
-  --text-muted: #4e5c53;
-  --text-light: #92a096;
-  --border-light: #e3e8e4;
-}
-
-/* 3. Tuscan Terracotta & Sandstone (Warm Artisan Luxury) */
-[data-theme="terracotta"] {
-  --bg-main: #fdfbf9;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f7f2ed;
-  --bg-hover: #ede5dd;
-  
-  --accent-primary: #8f3d2c;
-  --accent-hover: #702e21;
-  --accent-light: #fbeee9;
-  --accent-border: #f0cbbf;
-
-  --text-main: #241c1a;
-  --text-muted: #5e4f4b;
-  --text-light: #a4948f;
-  --border-light: #eaddd7;
-}
-
-/* 4. Roasted Espresso & Warm Truffle (Minimalist Modern Atelier) */
-[data-theme="espresso"] {
-  --bg-main: #faf8f5;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f2ede6;
-  --bg-hover: #e6ded4;
-  
-  --accent-primary: #2d241e;
-  --accent-hover: #1c1511;
-  --accent-light: #f5f0eb;
-  --accent-border: #ded3c5;
-
-  --text-main: #231d19;
-  --text-muted: #574e47;
-  --text-light: #9c9188;
-  --border-light: #e8ded4;
-}
-
-/* 5. Royal Bordeaux Burgundy (Vintage Opulence) */
-[data-theme="burgundy"] {
-  --bg-main: #fdfbfc;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f6eff1;
-  --bg-hover: #ece0e3;
-  
-  --accent-primary: #5c1d2e;
-  --accent-hover: #421320;
-  --accent-light: #f8eaee;
-  --accent-border: #e6c0ca;
-
-  --text-main: #24161a;
-  --text-muted: #5c4b50;
-  --text-light: #a39095;
-  --border-light: #e8d8dc;
-}
-
 /* ---------------- CSS Reset ---------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -206,8 +111,8 @@ button, input, select, textarea {
 
 /* ---------------- Top Announcement & Demo Switcher ---------------- */
 .top-announcement-bar {
-  background-color: var(--accent-primary);
-  color: #ffffff;
+  background-color: #234e38;
+  color: #f1f7f3;
   font-size: 0.85rem;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
