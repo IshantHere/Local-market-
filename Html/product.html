@@ -7,12 +7,10 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Global Shared Header -->
   <div id="site-header"></div>
 
   <main class="page-wrapper">
     <div class="container" id="product-detail-container">
-      <!-- Breadcrumbs -->
       <nav style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
         <a href="index.html">Home</a> &rsaquo;
         <a href="products.html">Products</a> &rsaquo;
@@ -20,9 +18,7 @@
         <span id="breadcrumb-product-name" style="color: var(--text-main); font-weight: 600;">Product</span>
       </nav>
 
-      <!-- Main Product View (Two column) -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 36px; margin-bottom: 48px; background: #fff; padding: 24px; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-        <!-- Col 1: Product Image -->
         <div>
           <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-light); background: var(--bg-subtle); aspect-ratio: 4/3;">
             <img id="detail-img" src="" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
@@ -35,7 +31,6 @@
           </div>
         </div>
 
-        <!-- Col 2: Details & Add to Cart -->
         <div style="display: flex; flex-direction: column;">
           <!-- Vendor Link -->
           <div style="margin-bottom: 6px;">
@@ -50,7 +45,6 @@
           </h1>
 
           <div id="detail-rating-wrapper" style="margin-bottom: 16px;">
-            <!-- Stars -->
           </div>
 
           <div style="margin-bottom: 20px; padding: 14px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
@@ -112,7 +106,6 @@
           </button>
         </div>
 
-        <!-- Write Review Form (Collapsible) -->
         <div id="review-form-container" style="display: none; background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); margin-bottom: 24px; border: 1px solid var(--border-light);">
           <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px;">Share Your Honest Feedback</h3>
           <form id="product-review-form">
@@ -147,16 +140,13 @@
 
         <!-- Reviews List -->
         <div id="product-reviews-list" style="display: flex; flex-direction: column; gap: 16px;">
-          <!-- Populated by product.js -->
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Global Shared Footer -->
   <div id="site-footer"></div>
 
-  <!-- Core Scripts -->
   <script src="../js/storage.js"></script>
   <script src="../js/data.js"></script>
   <script src="../js/utils.js"></script>
