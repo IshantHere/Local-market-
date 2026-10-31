@@ -1,7 +1,7 @@
-/* ==========================================================================
+/* 
    Local Market - Clean, Quiet Artisan Marketplace CSS
    Zero frameworks. Clean typography, muted forest green accent, thin borders.
-   ========================================================================== */
+ */
 
 :root {
   /* Colors */
@@ -10,16 +10,16 @@
   --bg-subtle: #f4f5f3;
   --bg-hover: #eceee9;
   
-  --accent-primary: #234e38;      /* Deep muted forest green */
+  --accent-primary: #234e38;      
   --accent-hover: #193828;
   --accent-light: #e9f2ec;
   --accent-border: #c8dfd1;
 
-  --text-main: #1f2937;          /* Soft slate black */
-  --text-muted: #596574;         /* Neutral charcoal gray */
-  --text-light: #9ca3af;         /* Muted light gray */
+  --text-main: #1f2937;          
+  --text-muted: #596574;       
+  --text-light: #9ca3af;       
 
-  --border-light: #e5e7eb;       /* Thin subtle border */
+  --border-light: #e5e7eb;       
   --border-dark: #d1d5db;
 
   --rating-gold: #d97706;
@@ -32,7 +32,7 @@
   --info: #1d4ed8;
   --info-light: #eff6ff;
 
-  /* Typography */
+ 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -47,7 +47,7 @@
   --container-max: 1200px;
 }
 
-/* ---------------- CSS Reset ---------------- */
+/* CSS Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -94,7 +94,7 @@ button, input, select, textarea {
   color: inherit;
 }
 
-/* ---------------- Layout & Container ---------------- */
+/*  Layout & Container  */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -109,7 +109,7 @@ button, input, select, textarea {
   padding-bottom: 48px;
 }
 
-/* ---------------- Top Announcement & Demo Switcher ---------------- */
+/*  Top Announcement & Demo Switcher */
 .top-announcement-bar {
   background-color: #234e38;
   color: #f1f7f3;
@@ -172,7 +172,7 @@ button, input, select, textarea {
   border-color: #ffffff;
 }
 
-/* ---------------- Header ---------------- */
+/*  Header  */
 .main-header {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-light);
@@ -484,7 +484,7 @@ button, input, select, textarea {
   background-color: var(--accent-light);
 }
 
-/* ---------------- Buttons ---------------- */
+/*  Buttons  */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -560,7 +560,7 @@ button, input, select, textarea {
   color: var(--accent-primary);
 }
 
-/* ---------------- Badges & Tags ---------------- */
+/*  Badges & Tags */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -580,7 +580,7 @@ button, input, select, textarea {
 .badge-info { background: var(--info-light); color: var(--info); }
 .badge-secondary { background: var(--bg-subtle); color: var(--text-muted); }
 
-/* ---------------- Forms & Inputs ---------------- */
+/*  Forms & Inputs */
 .form-group {
   margin-bottom: 16px;
 }
@@ -638,7 +638,7 @@ button, input, select, textarea {
   flex: 1;
 }
 
-/* ---------------- Cards & Surfaces ---------------- */
+/* Cards & Surfaces */
 .card {
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
@@ -651,7 +651,7 @@ button, input, select, textarea {
   border-color: var(--border-dark);
 }
 
-/* ---------------- Product Card Grid ---------------- */
+/* Product Card Grid  */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -798,7 +798,7 @@ button, input, select, textarea {
   font-weight: 600;
 }
 
-/* ---------------- Stars ---------------- */
+/*  Stars  */
 .star-rating {
   display: inline-flex;
   align-items: center;
@@ -825,7 +825,7 @@ button, input, select, textarea {
   color: var(--text-muted);
 }
 
-/* ---------------- Vendor Cards ---------------- */
+/* Vendor Cards  */
 .vendor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -880,7 +880,7 @@ button, input, select, textarea {
   padding-top: 10px;
 }
 
-/* ---------------- Banner / Promo Strip ---------------- */
+/*  Banner / Promo Strip  */
 .promo-banner {
   background-color: var(--accent-light);
   border: 1px dashed var(--accent-border);
@@ -919,7 +919,7 @@ button, input, select, textarea {
   gap: 6px;
 }
 
-/* ---------------- Tables (Cart, Orders, Admin) ---------------- */
+/* Tables (Cart, Orders, Admin) */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -1004,7 +1004,7 @@ button, input, select, textarea {
   outline: none;
 }
 
-/* ---------------- Delivery Pipeline Stepper ---------------- */
+/* Delivery Pipeline Stepper  */
 .pipeline-stepper {
   display: flex;
   align-items: flex-start;
@@ -1073,7 +1073,7 @@ button, input, select, textarea {
   color: var(--accent-primary);
 }
 
-/* ---------------- Toasts ---------------- */
+/* Toasts */
 .toast-container {
   position: fixed;
   bottom: 20px;
@@ -1143,7 +1143,7 @@ button, input, select, textarea {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* ---------------- Empty States ---------------- */
+/* Empty States  */
 .empty-state {
   text-align: center;
   padding: 48px 20px;
@@ -1172,7 +1172,7 @@ button, input, select, textarea {
   margin: 0 auto 18px auto;
 }
 
-/* ---------------- Footer ---------------- */
+/*  Footer  */
 .main-footer {
   background: var(--bg-surface);
   border-top: 1px solid var(--border-light);
@@ -1264,7 +1264,7 @@ button, input, select, textarea {
   font-size: 0.8rem;
 }
 
-/* ---------------- Filter Sidebar / Catalog Layout ---------------- */
+/*  Filter Sidebar / Catalog Layout  */
 .catalog-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -1321,7 +1321,7 @@ button, input, select, textarea {
   cursor: pointer;
 }
 
-/* ---------------- Modals ---------------- */
+/*  Modals  */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1383,7 +1383,7 @@ button, input, select, textarea {
   gap: 10px;
 }
 
-/* ---------------- Stat Metric Cards (Vendor & Admin) ---------------- */
+/*  Stat Metric Cards (Vendor & Admin)  */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1419,7 +1419,7 @@ button, input, select, textarea {
   margin-top: 4px;
 }
 
-/* ---------------- Responsive Styles ---------------- */
+/*  Responsive Styles  */
 @media (max-width: 900px) {
   .catalog-layout {
     grid-template-columns: 1fr;
