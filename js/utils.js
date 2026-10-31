@@ -1,9 +1,6 @@
-/**
- * utils.js - General utility functions for formatting, icons, validation, and toast notifications.
- */
 
 const Utils = {
-  // Format numbers to Indian Rupee currency string e.g. ₹350.00
+ 
   formatCurrency(value) {
     const num = Number(value) || 0;
     return '₹' + num.toLocaleString('en-IN', {
@@ -12,7 +9,7 @@ const Utils = {
     });
   },
 
-  // Format ISO/date string into readable format
+  
   formatDate(dateStr) {
     if (!dateStr) return '';
     try {
@@ -45,13 +42,13 @@ const Utils = {
     }
   },
 
-  // Get URL search parameters
+  
   getUrlParam(param) {
     const params = new URLSearchParams(window.location.search);
     return params.get(param);
   },
 
-  // Star ratings generator
+ 
   renderStars(rating, reviewCount = null) {
     const r = Math.round((Number(rating) || 0) * 2) / 2;
     let starsHtml = '<span class="star-rating" title="' + rating + ' out of 5 stars">';
@@ -72,7 +69,7 @@ const Utils = {
     return starsHtml;
   },
 
-  // Toast notification displayer
+
   showToast(message, type = 'info', duration = 3500) {
     if (typeof document === 'undefined') {
       console.log(`[Toast ${type}]: ${message}`);
@@ -90,7 +87,7 @@ const Utils = {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
     
-    // Choose icon
+
     let icon = 'ℹ';
     if (type === 'success') icon = '✓';
     if (type === 'error' || type === 'danger') icon = '✕';
@@ -104,7 +101,7 @@ const Utils = {
 
     container.appendChild(toast);
 
-    // Auto-remove
+
     setTimeout(() => {
       toast.classList.add('toast-fading');
       setTimeout(() => {
@@ -113,12 +110,10 @@ const Utils = {
     }, duration);
   },
 
-  // Client-side form validator helper
-  // Takes a form element and rules object:
-  // { 'inputName': { required: true, email: true, minLength: 3, pattern: /regex/, message: '...' } }
+  
   validateForm(form, rules) {
     let isValid = true;
-    // Clear previous error messages
+    
     form.querySelectorAll('.form-error-msg').forEach(el => el.remove());
     form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
 
@@ -159,7 +154,7 @@ const Utils = {
     return isValid;
   },
 
-  // Safe HTML escaper
+
   escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -170,7 +165,7 @@ const Utils = {
       .replace(/'/g, '&#039;');
   },
 
-  // Delivery status badge styling
+  
   getStatusBadge(status) {
     const s = (status || '').toLowerCase();
     let badgeClass = 'badge-secondary';
