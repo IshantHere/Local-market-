@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Global Shared Header -->
   <div id="site-header"></div>
 
   <main class="page-wrapper">
@@ -32,7 +31,6 @@
         </div>
       </div>
 
-      <!-- Low Stock Warning Banner (Rendered dynamically if stock <= 5) -->
       <div id="vendor-low-stock-alert"></div>
 
       <!-- Stat Cards Grid -->
@@ -40,24 +38,19 @@
         <!-- Rendered by vendor-dashboard.js -->
       </div>
 
-      <!-- Two Column Layout: Recent Orders & Catalog Overview -->
       <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 24px; align-items: flex-start;">
-        <!-- Left: Recent Store Orders -->
         <div class="card" style="padding: 0; overflow: hidden;">
           <div style="padding: 16px 20px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
             <h3 style="font-size: 1rem; font-weight: 700;">Recent Store Orders</h3>
             <a href="vendor-orders.html" style="font-size: 0.82rem; font-weight: 600;">View all orders &rarr;</a>
           </div>
           <div id="vendor-recent-orders-list">
-            <!-- Populated by JS -->
           </div>
         </div>
 
-        <!-- Right: Store Status & Fast Actions -->
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <!-- Store Status Card -->
           <div class="card" id="vendor-store-status-card">
-            <!-- Populated by JS -->
           </div>
 
           <!-- Active Promotions Card -->
@@ -67,7 +60,6 @@
               <a href="vendor-promos.html" style="font-size: 0.8rem; font-weight: 600;">Manage &rarr;</a>
             </div>
             <div id="vendor-promos-mini-list">
-              <!-- Populated by JS -->
             </div>
           </div>
         </div>
@@ -75,10 +67,8 @@
     </div>
   </main>
 
-  <!-- Global Shared Footer -->
   <div id="site-footer"></div>
 
-  <!-- Core Scripts -->
   <script src="../js/storage.js"></script>
   <script src="../js/data.js"></script>
   <script src="../js/utils.js"></script>
